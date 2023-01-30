@@ -1,5 +1,4 @@
 from abc import ABC
-from utils import add_years_to_date
 from car import Car
 
 class SpindlerBattery(Car,ABC):
@@ -9,5 +8,5 @@ class SpindlerBattery(Car,ABC):
         self.last_service_date = last_service_date
 
     def engine_should_be_serviced(self):
-        self.new_service_time = add_years_to_date(self.last_service_date,2)
+        self.new_service_time = self.last_service_date.replace(self.last_service_date.year + 2)
         return self.new_service_time > self.current_date
