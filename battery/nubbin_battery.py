@@ -1,5 +1,4 @@
 from abc import ABC
-from utils import add_years_to_date
 from car import Car
 
 class NubbinBattery(Car,ABC):
@@ -9,5 +8,5 @@ class NubbinBattery(Car,ABC):
         self.last_service_date = last_service_date
 
     def engine_should_be_serviced(self):
-        self.new_service_time = add_years_to_date(self.last_service_date,4)
+        self.new_service_time = self.last_service_date.replace(self.last_service_date.year + 4)
         return self.new_service_time > self.current_date
